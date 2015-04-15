@@ -9,9 +9,10 @@ $showCard.click(function(e) {
   $showCard.addClass(hideClass);
 });
 
-// $('.card .close').click(function(e) {
 $card.click(function(e) {
-	if ($(e.currentTarget.children[0]).hasClass(closeClass)) {
+	var parent = e.target.parentElement;
+	if ($(parent).hasClass(closeClass) || 
+		$(parent.parentElement).hasClass(closeClass)) {
 		$card.addClass(hideClass);
   			setTimeout(function() {
     		$card.css('display', 'none').removeClass(showClass).removeClass(hideClass);
